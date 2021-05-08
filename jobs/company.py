@@ -26,3 +26,10 @@ class CompanyProfile:
 
     def __getitem__(self, item):
         return self.jobs_posts[item]
+
+    def delete_post(self, job):
+        jobs = self.jobs_posts
+        if job in jobs:
+            self.jobs_posts.remove(job)
+            print(f"Job <{job}> Was deleted!")
+            Job.available_jobs.remove(job)

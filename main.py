@@ -3,6 +3,8 @@ created by Nagaj at 06/05/2021
 """
 from jobs.company import CompanyProfile
 from jobs.job import Job, JobDetails
+from accounts.members import UserProfile
+
 
 vodafone = CompanyProfile("Vodafone", "SmartVillage", range(500, 2000))
 huawei = CompanyProfile("Huawei", "SmartVillage", range(1000, 3000))
@@ -40,3 +42,28 @@ huawei.add_job_details(devops, devops_details)
 huawei.add_job_details(java, java_details)
 print(devops.jobdetails)
 print(java.jobdetails)
+
+print("#" * 50)
+print(huawei.jobs_posts)
+
+huawei.delete_post(backend)
+print(huawei.jobs_posts)
+
+print("Jobs: {}".format(Job.available_jobs))
+
+print("#" * 100)
+
+james = UserProfile(username="james", email="james@test.com", mobile="+2012535809876")
+john = UserProfile(username="john", email="john@test.com", mobile="+2013567899876")
+print(james)
+
+james.show_user_info()
+print("*" * 50)
+james.list_jobs()
+
+james.apply_job(php)
+james.apply_job(php)
+john.apply_job(php)
+print(php.applies)
+
+james.find_job("developer")
